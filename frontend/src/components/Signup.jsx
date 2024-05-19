@@ -38,7 +38,7 @@ const Signup = () => {
 
     
   return (
-<div className="flex justify-center items-center pt-14">
+<div className="flex justify-center  bg-slate-300  h-screen items-center pt-14">
         <div className="w-full max-w-sm p-4 space-y-6  items-center bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
            
                 <div className='flex justify-center'>

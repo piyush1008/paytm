@@ -57,14 +57,14 @@ const Signin = () => {
 
 
   return  (
-    <div className="flex justify-center items-center pt-14">
+    <div className="flex justify-center bg-slate-300  h-screen items-center pt-14">
             <div className="w-full max-w-sm p-4  items-center bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <form className="space-y-6" action="#">
                     <div className='flex justify-center'>
                          <h5 className="text-xl font-bold text-gray-900 dark:text-white">Sign in </h5>
                     </div>
                     <div className='flex justify-center'>
-                         <h5 className="text-sm font-light text-black-900 dark:text-black">Enter your credentials to access your account </h5>
+                         <h5 className="text-sm font-medium  text-black-900 dark:text-black">Enter your credentials to access your account </h5>
                     </div>
                     <div>
                         <label for="email" className="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Email</label>
