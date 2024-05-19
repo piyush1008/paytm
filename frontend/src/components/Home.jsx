@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 import { userLoginAtom } from '../store/atom/user'
 import Button from './utils/Button';
 import { useNavigate } from 'react-router-dom';
 import axios  from 'axios';
+import debounce from 'lodash.debounce';
 
 const Home = () => {
     const loginUser=useRecoilValue(userLoginAtom);
@@ -17,16 +18,33 @@ const Home = () => {
             .then(response => {
                 setUsers(response.data.user)
             })
-    }, [filter])
+    }, [])
+
+   // Function to fetch search results
+    const fetchResults = async (searchQuery) => {
+        try {
+        const response = await axios.get(`http://localhost:3000/api/v1/bulk?filter=${searchQuery}`);
+        setUsers(response.data.user);
+        } catch (error) {
+        console.error('Error fetching results:', error);
+        }
+    };
+
+     // Create a debounced version of the fetchResults function
+  const debouncedFetchResults = useCallback(debounce(fetchResults, 500), []);
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setFilter(value);
+    debouncedFetchResults(value);
+  };
 
     return <>
         <div className="font-bold mt-6 text-lg">
             Users
         </div>
         <div className="my-2">
-            <input onChange={(e)=>{
-               setFilter(e.target.value)
-            }} type="text" placeholder="Search users..." className="w-full px-2 py-1 border rounded border-slate-200"></input>
+            <input onChange={handleChange} type="text" placeholder="Search users..." className="w-full px-2 py-1 border rounded border-slate-200"></input>
         </div>
         <div>
             {users.map(user => <User user={user} />)}

@@ -87,3 +87,10 @@ Copy code
 await session.abortTransaction();
 session.endSession();
 Remember, sessions are particularly useful when you need to perform multiple operations as part of a transaction, ensuring either all operations succeed or none of them are applied, maintaining data consistency.
+
+
+
+### other things that need to be worked out in frontend
+
+1. How to add to loader while data is getting fetched
+2. How to add debouncing behavior using  "lodash.debounce"
