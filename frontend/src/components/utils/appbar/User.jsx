@@ -8,7 +8,7 @@ const User = () => {
   return (
     <div className="flex flex-row font-semibold justify-center h-full space-x-2 mr-2">
       <div className='flex items-center justify-center'>
-        piyush
+        {loginUser.name}
       </div>
       <div className='flex items-center justify-center'>
        <Logout />
