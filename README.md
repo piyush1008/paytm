@@ -1,6 +1,16 @@
 
 ## Build a basic version of PayTM
 
+##feaures used in this project
+1. Recoil for state management
+2. Debouncing
+3. Mongodb 
+4. express
+5. unauthorized url accessibility 
+6. tailwind for styling
+7. header based authentication
+8. 
+
 
 In the real world, you shouldn’t store `floats` for balances in the database.
 You usually store an integer which represents the INR value with 
